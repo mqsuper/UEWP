@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="UEWP.Master.Admin" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="../CSS/Style.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../CSS/Sidebar/Sidebar.css" rel="stylesheet" />
+    <script src="../CSS/Sidebar/Sidebar.js"></script>
+    <link href="../CSS/W3/W3.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <%--  <!-- Fixed navbar -->
+        <div class="navbar navbar-static navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="container w3-right w3-red" style="">asdfsdf</div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Begin page content -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-left sidebar-animate sidebar-md-show">
+                    <ul class="nav navbar-stacked">
+                        <li class="active">
+                            <a href="#">主页</a>
+                        </li>
+                        <li>
+                            <a href="#about">公司管理</a>
+                        </li>
+                        <li>
+                            <a href="#contact">用户管理</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="main col-md-10 col-md-offset-3">
+                    <div class="page-header">
+                        <h1>Sticky footer with fixed navbar</h1>
+                    </div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+            </div>
+        </div>--%>
+        <div class="w3-container w3-green w3-padding-top w3-padding-bottom">
+            <div class="w3-left w3-pale-blue">Icon Logo</div>
+            <div class="w3-right w3-pale-blue">Login Panel</div>
+        </div>
+        <nav class="w3-sidenav w3-white w3-card-2 w3-animate-left w3-collapse w3-border" style="width: 200px" id="mySidenav">
+            <a href="javascript:void(0)" onclick="w3_close()"
+                class="w3-closenav w3-large w3-hide-large">Close &times;</a>
+            <a href="#"><i class="fa fa-home w3-large"> 公司管理</i></a>
+            <a href="#"><i class="fa fa-user w3-large"> 用户管理</i></a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <asp:ContentPlaceHolder ID="lefNavigator" runat="server"></asp:ContentPlaceHolder>
+        </nav>
+
+        <div style="margin-left: 200px" class="w3-main">
+
+            <header class="w3-container w3-teal">
+                <span class="w3-opennav w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</span>
+                <h1>My Header</h1>
+            </header>
+            <div class="w3-container">
+                <h2>Side Navigation Example</h2>
+                <p>Note that you control the size of the sidenav with style="width:value". To change the color, change the w3-color class.</p>
+
+                <p>Make sure to add the margin-left property to the page content, with a value that is equal to the width of the sidenav. If you omit this, the navigation pane will overlay/sit on top of the page content.</p>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="w3-container w3-teal">
+                <h5>Footer</h5>
+                <p>Footer information goes here</p>
+            </footer>
+
+        </div>
+
+    </form>
+</body>
+<script>
+    function w3_open() {
+        document.getElementById("mySidenav").style.display = "block";
+    }
+    function w3_close() {
+        document.getElementById("mySidenav").style.display = "none";
+    }
+</script>
+</html>
