@@ -1,0 +1,3 @@
+﻿Use master;
+
+CREATE DATABASE UEWP;
