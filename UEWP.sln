@@ -20,7 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SP", "SP", "{78D8C34E-1D55-
 		AddCompany.sql = AddCompany.sql
 		AddUser.sql = AddUser.sql
 		AddUserRole.sql = AddUserRole.sql
+		Business Management.sql = Business Management.sql
+		Company Management.sql = Company Management.sql
 		Register.sql = Register.sql
+		User Management.sql = User Management.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRUD", "CRUD", "{835DB8F0-370E-40C5-9CA3-E3C5D3365276}"

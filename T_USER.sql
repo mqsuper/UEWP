@@ -28,4 +28,13 @@ PRIMARY KEY CLUSTERED
 
 GO
 
+--基础数据
 
+DEclare @NewUserID uniqueidentifier;
+set @NewUserID=newid();
+INSERT T_USER (UserID, UserName,UserEmail, UserPhone,UserPWD, IsActive)
+values 
+(@NewUserID, 'System Admin','mqsuper@126.com','18217265225','admin',1)
+
+INSERT T_USER_ROLE(UserRoleID,UserID,RoleID,BUSINESSID,CompanyID)
+values (Newid(),@NewUserID,1,null,null)

@@ -43,6 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CommonManager.cs" />
     <Compile Include="Service\CompanyManager.cs" />
+    <Compile Include="Service\UserManager.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
