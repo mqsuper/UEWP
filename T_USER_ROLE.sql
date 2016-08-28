@@ -8,11 +8,15 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+-----
+--- 
+---
 CREATE TABLE [dbo].[T_USER_ROLE](
 	[UserRoleID] [uniqueidentifier] NOT NULL,
 	[UserID] [uniqueidentifier] NOT NULL,
-	[RoleID] [uniqueidentifier] NOT NULL,
+	[RoleID] [int] NOT NULL,
 	BUSINESSID INT,
+	CompanyID int
 PRIMARY KEY CLUSTERED 
 (
 	[UserRoleID] ASC
@@ -21,4 +25,5 @@ PRIMARY KEY CLUSTERED
 
 GO
 
+--
 

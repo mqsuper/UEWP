@@ -16,9 +16,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL Scripts", "SQL Scripts", "{E0AF0485-6018-4345-A33F-6C10A457A1FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SP", "SP", "{78D8C34E-1D55-4C7A-A0FF-40A97652B1D8}"
+	ProjectSection(SolutionItems) = preProject
+		AddCompany.sql = AddCompany.sql
+		AddUser.sql = AddUser.sql
+		AddUserRole.sql = AddUserRole.sql
+		Register.sql = Register.sql
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRUD", "CRUD", "{835DB8F0-370E-40C5-9CA3-E3C5D3365276}"
 	ProjectSection(SolutionItems) = preProject
+		Delete .sql = Delete .sql
 		T_BUSINESS.sql = T_BUSINESS.sql
 		T_COMPANY.sql = T_COMPANY.sql
 		T_ROLES.sql = T_ROLES.sql

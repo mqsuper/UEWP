@@ -8,10 +8,11 @@ namespace UEWP.Models
 {
    public class Company
     {
-       public string CompanyName { get; set; }
-       public string CompanyAddress { get; set; }
-       public string CompanyPhone { get; set; }
-       public string CompanyContactor { get; set; }
-       public int CompanyID { get; set; }
+       public string Name { get; set; }
+       public string Address { get; set; }
+       public string Phone { get; set; }
+       public string Contactor { get; set; }
+       public int ID { get; set; }
+       public bool ApproveStatus{ get; set; }
     }
 }

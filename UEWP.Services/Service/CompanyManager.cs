@@ -31,11 +31,11 @@ namespace UEWP.Services.Service
                foreach (DataRow dr in ds.Tables[0].Rows)
                { 
                     com=new Company();
-                    com.CompanyID = int.Parse(dr["CompanyID"].ToString());
-                   com.CompanyName=dr["CompanyName"].ToString();
-                    com.CompanyAddress=dr["ComanyAddress"].ToString();
-                    com.CompanyContactor = dr["CompanyName"].ToString();
-                    com.CompanyPhone = dr["CompanyName"].ToString();
+                    com.ID = int.Parse(dr["CompanyID"].ToString());
+                   com.Name=dr["CompanyName"].ToString();
+                    com.Address=dr["ComanyAddress"].ToString();
+                    com.Contactor = dr["CompanyName"].ToString();
+                    com.Phone = dr["CompanyName"].ToString();
                     comList.Add(com);
                }
            }

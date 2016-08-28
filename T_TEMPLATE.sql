@@ -19,6 +19,7 @@ CREATE TABLE [dbo].[T_TEMPLATE](
 	[ModifiedBy] [nvarchar](50) NULL,
 	[ModifiedDate] [datetime] NULL,
 	[IsActive] [bit] NULL,
+	[Version] [int] NULL,
 	[ProcessID] [int] NULL,
 	[Status] bit,
 PRIMARY KEY CLUSTERED 

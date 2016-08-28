@@ -68,19 +68,18 @@
 
         <div style="margin-left: 200px" class="w3-main">
 
-            <header class="w3-container w3-teal">
+            <%--<header class="w3-container w3-teal">
                 <span class="w3-opennav w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</span>
                 <h1>My Header</h1>
-            </header>
+            </header>--%>
             <div class="w3-container">
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer class="w3-container w3-teal">
+            <%--<footer class="w3-container w3-teal">
                 <h5>Footer</h5>
                 <p>Footer information goes here</p>
-            </footer>
-
+            </footer>--%>
         </div>
 
     </form>

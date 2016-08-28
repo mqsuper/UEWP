@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[T_BUSINESS](
 	[BUSINESSID] [int] PRIMARY key NOT NULL,
 	[ComanyId] [int] NULL,
 	[BUSINESSName] [nvarchar](50) NOT NULL,
+	[BUSINESSName] [nvarchar](200) NOT NULL,
 	[CreatedBy] [nvarchar](50) NULL,
 	[CreatedDate] [datetime] NULL,
 	[ModifiedBy] [nvarchar](50) NULL,

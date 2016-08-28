@@ -9,14 +9,15 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[T_COMPANY](
-	[CompanyID] [int] NOT NULL,
+	[CompanyID] [int] identity(1,1) NOT NULL,
 	[CompanyName] [nvarchar](200) NOT NULL,
 	[ComanyAddress] [nvarchar](300) NOT NULL,
-	[CompanyPhone] [nvarchar](30) NULL,
+	[CompanyPhone] [nvarchar](30) NOT NULL,
 	[CompanyContactor] [nvarchar](50) NULL,
 	[IsActive] [bit] NULL,
-	[ApprovalStatus] [int] NULL,
+	[ApprovalStatus] [bit] NULL,
 	[Level] int,
+	[ApplyUserID] uniqueidentifier,
 PRIMARY KEY CLUSTERED 
 (
 	[CompanyID] ASC

@@ -16,7 +16,7 @@ namespace UEWP
             //test
 
             CompanyManager comManager = new CompanyManager();
-           List<Company> list=comManager.GetCompanies("");
+           List<Company> list=comManager.GetCompanies("").OrderByDescending(com=>com.ApproveStatus).ToList();
            gvCompanies.DataSource = list;
            gvCompanies.DataBind();
         }
