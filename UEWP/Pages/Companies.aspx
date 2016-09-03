@@ -10,9 +10,7 @@
     <script>
         var btnRefreshCompanyGrid='<%=btnRefreshCompanies.ClientID%>';
     </script>
-    <style>
-        .pager span { color:#009900;font-weight:bold; font-size:12pt;  text-decoration:underline}
-    </style>
+ 
     <header class="w3-container w3-teal">
         <span class="w3-opennav w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</span>
         

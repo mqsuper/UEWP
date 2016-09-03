@@ -1,11 +1,12 @@
 ﻿--添加业务
-CREATE PROC  AddBusiness
+CREATE  [dbo].[AddBusiness]
 (
 	@BusinessName nvarchar(50),
 	@BusinessDescription nvarchar(200),	
 	@CompanyID int output,
 	@IsActive bit,
-	@UserName nvarchar(50)
+	@UserName nvarchar(50),
+	@BusinessID int out
 )
 
 AS
@@ -13,6 +14,8 @@ BEGIN
 	INSERT T_BUSINESS(BusinessName, CompanyId, BusinessDescription,IsActive, CreatedBy,CreatedDate,ModifiedBy,ModifiedDate)
 	values
 	(@BusinessName,@CompanyID,@BusinessDescription,@IsActive,@UserName,getdate(),@UserName,getdate() );
+	set @BusinessID=SCOPE_IDENTITY();
+	select @BusinessID as 'BusinessID' ;
 
 END
 GO
@@ -48,7 +51,7 @@ END
 GO
 --获取业务
 CREATE PROC [dbo].GetAllBusiness(
-@KeyWord nvarchar(50)
+@KeyWord nvarchar(max)
 )
 AS 
 IF (@KeyWord='')
@@ -57,18 +60,19 @@ BEGIN
 END
 ELSE
 BEGIN
-	SELECT * FROM T_BUSINESS WHERE BusinessName like '%'+@KeyWord+'%'
+	SELECT * FROM T_BUSINESS WHERE BusinessName like '%'+@KeyWord+'%' 
 END
 GO
 
 --根据公司获取业务
 CREATE PROC [dbo].GetBusinessByCompany(
-@CompanyID int
+@CompanyID int,
+@keyWord nvarchar(max)
 )
 AS 
 
 BEGIN
-	SELECT * FROM T_BUSINESS where CompanyID=@CompanyID
+	SELECT * FROM T_BUSINESS where CompanyID=@CompanyID and  BusinessName like '%'+@keyWord+'%' 
 END
 
 GO

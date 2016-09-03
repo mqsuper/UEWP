@@ -12,3 +12,9 @@ display:none;
 body {
 line-height:1.0 !important;
 }
+ .pager span {
+            color: #009900;
+            font-weight: bold;
+            font-size: 12pt;
+            text-decoration: underline;
+        }

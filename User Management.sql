@@ -12,8 +12,9 @@ END
 GO
 
 --获得所有用户
-CREATE PROC GetAllUsers
+ALTER PROC GetAllUsers(
  @keyWord nvarchar(max)
+ )
 AS
 BEGIN
 	SELECT * FROM T_USER  where 
@@ -92,3 +93,35 @@ VALUES(@UserID, @CompanyID,@UserName,@UserEmail,@UserPWD,@UserGender,@UserAge,@U
 
 select @UserID as 'UserID'
 END 
+
+CREATE PROC GetAssignedBusinessByUserID
+(
+	@UserID uniqueidentifier
+)
+as
+BEGIN
+	select * from RoleWithBusiness where USERID=@UserID
+END
+go
+--exec  GetAssignedBusinessByUserID '73e9bb3b-7c34-493e-b7c3-027ad3584b87'
+
+--exec GetRoleInformationonAllBusiness 7,'73e9bb3b-7c34-493e-b7c3-027ad3584b87'
+
+-- 获取公司全部的业务，以及用户在每个业务的权限
+CREATE PROC GetRoleInformationonAllBusiness
+(
+	@CompanyID int,
+	@UserID uniqueIdentifier
+)
+
+AS
+BEGIN
+	select * from (
+	select * from T_BUSINESS B where b.CompanyId=@CompanyID ) TB left join 
+	(select * from 	 T_USER_ROLE UR where CompanyID=@CompanyID and UserID=@UserID) TUR
+	
+	 on  TB.BUSINESSID=TUR.BUSINESSID 
+END
+GO
+
+

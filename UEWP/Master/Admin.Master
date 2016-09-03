@@ -24,6 +24,7 @@
     <link href="../CSS/Sidebar/Sidebar.css" rel="stylesheet" />
     <script src="../CSS/Sidebar/Sidebar.js"></script>
     <link href="../CSS/W3/W3.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pages\AssignRole.aspx" />
     <Content Include="Pages\BusinessList.aspx" />
     <Content Include="Pages\Companies.aspx" />
     <Content Include="CSS\Sidebar\Sidebar.css" />
@@ -69,6 +70,7 @@
     <Content Include="Pages\RoleManagement.aspx" />
     <Content Include="Pages\TemplateList.aspx" />
     <Content Include="Pages\UserList.aspx" />
+    <Content Include="Scripts\Business\BizManagement.js" />
     <Content Include="Scripts\UEWP.Common.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -85,6 +87,8 @@
     <Content Include="Scripts\Company\Company.js" />
     <Content Include="Scripts\Jquery\JavaScript1.js" />
     <Content Include="Scripts\Template\Template.js" />
+    <Content Include="Scripts\User\ResponsiveDialog.js" />
+    <Content Include="Scripts\User\RoleAssignment.js" />
     <Content Include="Scripts\User\UserManagement.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -93,6 +97,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Code\UserHelper.cs" />
+    <Compile Include="Pages\AssignRole.aspx.cs">
+      <DependentUpon>AssignRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AssignRole.aspx.designer.cs">
+      <DependentUpon>AssignRole.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BusinessList.aspx.cs">
       <DependentUpon>BusinessList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

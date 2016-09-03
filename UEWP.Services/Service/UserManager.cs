@@ -105,6 +105,20 @@ namespace UEWP.Services.Service
             }
         }
 
+        public DataSet GetRoleInformationonAllBusiness(User currentUser)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "GetRoleInformationonAllBusiness";
+            //@CompanyID int,
+            //@UserID uniqueIdentifier
+            command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyID", SqlDbType = SqlDbType.Int, Value = currentUser.CompanyID });
+            command.Parameters.Add(new SqlParameter() { ParameterName = "@UserID", SqlDbType = SqlDbType.UniqueIdentifier, Value = new Guid( currentUser.ID) });
+            SqlParameter[] parameters = new SqlParameter[command.Parameters.Count];
+            command.Parameters.CopyTo(parameters, 0);
+            DataSet ds= SqlHelper.ExecuteDataset(SqlHelper.conStr, command.CommandText, parameters);
+            return ds;
+        }
+
         /// <summary>
         /// @keyWord
         /// </summary>
@@ -138,7 +152,7 @@ namespace UEWP.Services.Service
         {
             User obj = new User();
             obj.ID= dr["UserID"].ToString();
-            obj.CompanyID = (dr["CompanyID"]==null|| string.IsNullOrEmpty(dr["UserAge"].ToString()))?-1:int.Parse(dr["CompanyID"].ToString());
+            obj.CompanyID = (dr["CompanyID"] == null || string.IsNullOrEmpty(dr["CompanyID"].ToString())) ? -1 : int.Parse(dr["CompanyID"].ToString());
             obj.Name = dr["UserName"].ToString();
             obj.Email = dr["UserEmail"].ToString();
             obj.Password = dr["UserPWD"].ToString();

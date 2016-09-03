@@ -39,6 +39,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRUD", "CRUD", "{835DB8F0-3
 		UEWP.sql = UEWP.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{C8908A67-6EE5-45CC-861B-A50AB1238416}"
+	ProjectSection(SolutionItems) = preProject
+		Views.sql = Views.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +77,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{78D8C34E-1D55-4C7A-A0FF-40A97652B1D8} = {E0AF0485-6018-4345-A33F-6C10A457A1FB}
 		{835DB8F0-370E-40C5-9CA3-E3C5D3365276} = {E0AF0485-6018-4345-A33F-6C10A457A1FB}
+		{C8908A67-6EE5-45CC-861B-A50AB1238416} = {E0AF0485-6018-4345-A33F-6C10A457A1FB}
 	EndGlobalSection
 EndGlobal
