@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="UEWP.Master.Admin" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="UEWP.Web.Master.Admin" %>
 
 <!DOCTYPE html>
 
@@ -9,13 +9,18 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link href="../CSS/Style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- jQuery library -->
     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>   
 
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <%--customized javascript--%>
+    <script src="../Scripts/UEWP.Common.js"></script>
+
+    <%--customized style --%>
     <link href="../CSS/Sidebar/Sidebar.css" rel="stylesheet" />
     <script src="../CSS/Sidebar/Sidebar.js"></script>
     <link href="../CSS/W3/W3.css" rel="stylesheet" />
@@ -36,7 +41,7 @@
 </script>
 <body>
     <form id="form1" runat="server">
-
+        <asp:Button id="btnLoginOut" runat="server" Text="注销" OnClick="btnLoginOut_Click" />
         <div class="w3-container w3-green w3-padding-top w3-padding-bottom">
             <div class="w3-left">
                 <div class="w3-tag w3-red">U</div>
@@ -58,11 +63,11 @@
         <nav class="w3-sidenav w3-white w3-card-2 w3-animate-left w3-collapse w3-border w3-padding-top" style="width: 200px" id="mySidenav">
             <a href="javascript:void(0)" onclick="w3_close()"
                 class="w3-closenav w3-large w3-hide-large">Close &times;</a>
-            <a href="#"><i class="fa fa-home w3-large">公司管理</i></a>
-            <a href="#"><i class="fa fa-user w3-large">用户管理</i></a>
-            <a href="#"><i class="fa fa-bookmark w3-large">模板管理</i></a>
-            <a href="#">Link</a>
-            <a href="#">Link</a>
+            <a href="../pages/companies.aspx"><i class="fa fa-home "> 公司管理</i></a>
+            <a href="../pages/userlist.aspx"><i class="fa fa-user "> 用户管理</i></a>
+            <a href="../pages/TemplateList.aspx"><i class="fa fa-bookmark "> 模板管理</i></a>
+            <a href="../pages/businesslist.aspx"><i class="fa fa-bookmark ">  业务管理</i></a>
+            <a href="../pages/RoleManagement.aspx"><i class="fa fa-bookmark ">  权限管理</i></a>
             <asp:ContentPlaceHolder ID="lefNavigator" runat="server"></asp:ContentPlaceHolder>
         </nav>
 
@@ -75,6 +80,7 @@
             <div class="w3-container">
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <%--//main--%>
             </asp:ContentPlaceHolder>
             <%--<footer class="w3-container w3-teal">
                 <h5>Footer</h5>

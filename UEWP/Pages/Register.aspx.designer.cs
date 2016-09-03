@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UEWP.Pages {
+namespace UEWP.Web.Pages {
     
     
     public partial class Register {

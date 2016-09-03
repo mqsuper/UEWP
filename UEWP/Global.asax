@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="UEWP.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="UEWP.Web.Global" Language="C#" %>

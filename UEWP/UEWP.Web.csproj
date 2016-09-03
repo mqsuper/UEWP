@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UEWP</RootNamespace>
-    <AssemblyName>UEWP</AssemblyName>
+    <RootNamespace>UEWP.Web</RootNamespace>
+    <AssemblyName>UEWP.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pages\BusinessList.aspx" />
     <Content Include="Pages\Companies.aspx" />
     <Content Include="CSS\Sidebar\Sidebar.css" />
     <Content Include="CSS\Sidebar\Sidebar.js" />
@@ -65,6 +66,10 @@
     <Content Include="Images\img_avatar3.png" />
     <Content Include="Master\Admin.Master" />
     <Content Include="Master\Site.Master" />
+    <Content Include="Pages\RoleManagement.aspx" />
+    <Content Include="Pages\TemplateList.aspx" />
+    <Content Include="Pages\UserList.aspx" />
+    <Content Include="Scripts\UEWP.Common.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -80,9 +85,21 @@
     <Content Include="Scripts\Company\Company.js" />
     <Content Include="Scripts\Jquery\JavaScript1.js" />
     <Content Include="Scripts\Template\Template.js" />
+    <Content Include="Scripts\User\UserManagement.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\UserHelper.cs" />
+    <Compile Include="Pages\BusinessList.aspx.cs">
+      <DependentUpon>BusinessList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessList.aspx.designer.cs">
+      <DependentUpon>BusinessList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Companies.aspx.cs">
       <DependentUpon>Companies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,12 +138,33 @@
     <Compile Include="Pages\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RoleManagement.aspx.cs">
+      <DependentUpon>RoleManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RoleManagement.aspx.designer.cs">
+      <DependentUpon>RoleManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateList.aspx.cs">
+      <DependentUpon>TemplateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateList.aspx.designer.cs">
+      <DependentUpon>TemplateList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Templates.aspx.cs">
       <DependentUpon>Templates.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Templates.aspx.designer.cs">
       <DependentUpon>Templates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

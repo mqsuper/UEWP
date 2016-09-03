@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace UEWP.Master
+namespace UEWP.Web.Master
 {
     public partial class Site : System.Web.UI.MasterPage
     {

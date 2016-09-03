@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Admin.Master" AutoEventWireup="true" CodeBehind="Templates.aspx.cs" Inherits="UEWP.Pages.Templates" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Admin.Master" AutoEventWireup="true" CodeBehind="Templates.aspx.cs"
+     Inherits="UEWP.Web.Pages.Templates" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Scripts/Template/Template.js"></script>

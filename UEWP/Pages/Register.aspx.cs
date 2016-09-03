@@ -7,13 +7,13 @@ using System.Web.UI.WebControls;
 using UEWP.Models;
 using UEWP.Services.Service;
 
-namespace UEWP.Pages
+namespace UEWP.Web.Pages
 {
     public partial class Register : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.Page.Header.Title = "用户注册";
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)

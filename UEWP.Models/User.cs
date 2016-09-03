@@ -18,7 +18,9 @@ namespace UEWP.Models
        public string Phone { get; set; }
        public bool IsActive { get; set; }
        public string CreatedBy { get; set; }
-       public DateTime? Created { get; set; }
+       public string Created { get; set; }
+       public RoleType RoleType { set; get; }
+       public int CompanyID { set; get; }
        
     }
 }

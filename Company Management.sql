@@ -8,7 +8,7 @@ CREATE PROC  AddCompany
 	@IsActive bit,
 	@ApprovalStatus bit, 
 	@Level int,
-	@CompanyID int output,
+	@CompanyID int out,
 	@ApplyUserID Uniqueidentifier
 )
 
@@ -19,7 +19,7 @@ BEGIN
 	(@CompanyName, @CompanyAddress, @CompanyContactor, @CompanyPhone, @IsActive, @ApprovalStatus, @Level,@ApplyUserID )
 
 	set @CompanyID=SCOPE_IDENTITY();
-	select @CompanyID;
+	select @CompanyID as 'CompanyID';
 
 END
 GO

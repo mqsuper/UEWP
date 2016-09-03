@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UEWP.Master {
+namespace UEWP.Web.Master {
     
     
     public partial class Admin {
@@ -29,6 +29,15 @@ namespace UEWP.Master {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// btnLoginOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLoginOut;
         
         /// <summary>
         /// lefNavigator control.

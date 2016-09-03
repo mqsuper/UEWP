@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UEWP.Pages {
+namespace UEWP.Web.Pages {
     
     
     public partial class Login {
@@ -38,6 +38,15 @@ namespace UEWP.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserPWD;
+        
+        /// <summary>
+        /// txtLoginMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtLoginMsg;
         
         /// <summary>
         /// btnRegister control.

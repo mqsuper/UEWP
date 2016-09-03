@@ -9,3 +9,6 @@ display:none;
 }
 .templateContainer {
 }
+body {
+line-height:1.0 !important;
+}

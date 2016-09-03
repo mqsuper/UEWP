@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Admin.Master" AutoEventWireup="true" CodeBehind="Companies.aspx.cs" Inherits="UEWP.Companies" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Admin.Master" AutoEventWireup="true"
+    CodeBehind="Companies.aspx.cs" Inherits="UEWP.Web.Pages.Companies" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Scripts/Company/Company.js"></script>
@@ -6,26 +7,49 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="lefNavigator" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script>
+        var btnRefreshCompanyGrid='<%=btnRefreshCompanies.ClientID%>';
+    </script>
+    <style>
+        .pager span { color:#009900;font-weight:bold; font-size:12pt;  text-decoration:underline}
+    </style>
     <header class="w3-container w3-teal">
         <span class="w3-opennav w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</span>
-        <h1>公司列表</h1>
+        
     </header>
     <div class="w3-container">
-        <asp:GridView runat="server" ID="gvCompanies" AutoGenerateColumns="false" CssClass="w3-table w3-striped w3-hover-gray w3-border">
-            <Columns>
-
-                <asp:BoundField DataField="Name" HeaderText="名称" />
-                <asp:BoundField DataField="Address" HeaderText="地址" />
-                <asp:BoundField DataField="Phone" HeaderText="联系方式" />
-                <asp:BoundField DataField="Contactor" HeaderText="联系人" HeaderStyle-CssClass="w3-hide-small" ItemStyle-CssClass="w3-hide-small" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <input class="w3-btn w3-round" value="查看" style="width: 80px;" onclick="openCompanyDialog();" />
-                        <input class="w3-btn w3-round" value="通过" style="width: 80px;" onclick="approveApplication('<%#  Eval("ID") %>    ');" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+        <br />
+         关键字： <input type="text" class=" w3-border w3-round" style="max-width:300px; height:30px;" id="txtKeyword" runat="server" /> 
+        <input type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round"  id="btnSearCompany"  value="搜索" />
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <br /><br />
+        <input type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round"  id="btnAddCompany" value="+增加" />
+        <asp:Button ID="btnRefreshCompanies" runat="server" OnClick="btnRefreshCompanies_Click" style="display:none" />
+        <asp:UpdatePanel runat="server"  UpdateMode="Conditional" ID="UP_gridview">
+            <Triggers>
+                <asp:AsyncPostBackTrigger  ControlID="btnRefreshCompanies"  />
+            </Triggers>
+            <ContentTemplate>
+                <asp:GridView runat="server" ID="gvCompanies" AllowPaging="true" PageSize="8"
+                    AutoGenerateColumns="false" CssClass="w3-table w3-striped w3-hover-gray "
+                    OnPageIndexChanging="gvCompanies_PageIndexChanging">
+                    <Columns>
+                        <asp:BoundField DataField="ID" HeaderText="" ItemStyle-CssClass="hidden w3-hide-small" HeaderStyle-CssClass="hidden"/>
+                        <asp:BoundField DataField="Name" HeaderText="名称" />
+                        <asp:BoundField DataField="Address" HeaderText="地址" />
+                        <asp:BoundField DataField="Phone" HeaderText="联系方式" />
+                        <asp:BoundField DataField="Contactor" HeaderText="联系人" HeaderStyle-CssClass="w3-hide-small" ItemStyle-CssClass="w3-hide-small" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <input class="w3-btn w3-round" value="查看" style="width: 80px;" onclick="openCompanyDialog();" />
+                                <input class="w3-btn w3-round" value="通过" style="width: 80px;" onclick="approveApplication('<%#  Eval("ID") %>    ');" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <PagerStyle CssClass="w3-pagination w3-border-bottom  w3-round pager" HorizontalAlign="Center" />
+                </asp:GridView>               
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     <div id="divCompanyDetails" class="w3-modal w3-round">
         <div class="w3-modal-content w3-round">
@@ -33,16 +57,20 @@
                 <span onclick="document.getElementById('divCompanyDetails').style.display='none'"
                     class="w3-closebtn">&times;</span>
 
-                <header class="w3-teal w3-padding  w3-padding-top w3-padding-bottom w3-round">Company Detail</header>
-                <label>Company Name</label>
+                <header class="w3-teal w3-padding  w3-padding-top w3-padding-bottom w3-round">公司信息</header>
+                <label>公司名称</label>
                 <input type="text" class="w3-input w3-border w3-round" id="txtCompanyName" />
-                <label>Company Address</label>
+                <label>公司地址</label>
                 <input type="text" class="w3-input w3-border w3-round" id="txtCompanyAddress" />
+                <label>公司联系人</label>
+                <input type="text" class="w3-input w3-border w3-round" id="txtCompanyContactor" />
+                <label>公司联系方式</label>
+                <input type="text" class="w3-input w3-border w3-round" id="txtCompanyPhone" />
                 <br />
                 <div class="w3-container w3-center">
 
-                    <input type="button" class="w3-btn UEWPbtnMiddle" value="Edit" id="btnEdit" />
-                    <input type="button" class="w3-btn UEWPbtnMiddle" value="Save" id="btnSave" />
+                    <input type="button" class="w3-btn UEWPbtnMiddle" value="取消" id="btnEdit" />
+                    <input type="button" class="w3-btn UEWPbtnMiddle" value="保存" id="btnSave" />
                 </div>
             </div>
         </div>

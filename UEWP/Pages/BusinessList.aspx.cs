@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace UEWP.Web.Pages
 {
-    public partial class Templates : BasePage
+    public partial class BusinessList : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.Page.Header.Title = "用户管理";
+            this.Page.Header.Title = "业务管理";
         }
     }
 }

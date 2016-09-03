@@ -13,22 +13,26 @@ GO
 
 --获得所有用户
 CREATE PROC GetAllUsers
+ @keyWord nvarchar(max)
 AS
 BEGIN
-	SELECT * FROM T_USER 
+	SELECT * FROM T_USER  where 
+	UserName like '%'+@keyWord+'%' or UserEmail like '%'+@keyWord+'%'
 END
 
 go
 
 ---根据公司获得用户
-CREATE PROC GetUsersByCompany
+CRATE PROC GetUsersByCompany
 (
-	@CompanyID int
+	@CompanyID int,
+	 @keyWord nvarchar(max)
 )
 
 AS
 BEGIN
-	SELECT * FROM t_uSER WHERE COMPANYID=@COMPANYid
+	SELECT * FROM t_uSER WHERE COMPANYID=@COMPANYid and ( 
+	UserName like '%'+@keyWord+'%' or UserEmail like '%'+@keyWord+'%')
 END
 go
 
@@ -86,5 +90,5 @@ END
 INSERT T_User (UserID, CompanyID, UserName, UserEmail, UserPWD, UserGender, UserAge, UserPhone, IsActive, CreatedBy, CreatedDate)
 VALUES(@UserID, @CompanyID,@UserName,@UserEmail,@UserPWD,@UserGender,@UserAge,@UserPhone,@IsActive,@CreatedBy,getdate());
 
-select @UserID
+select @UserID as 'UserID'
 END 

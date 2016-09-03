@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="UEWP.Pages.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" 
+    Inherits="UEWP.Web.Pages.Register" %>
 
 <!DOCTYPE html>
 

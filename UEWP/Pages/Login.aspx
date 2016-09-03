@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UEWP.Pages.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UEWP.Web.Pages.Login" %>
 
 <!DOCTYPE html>
 
@@ -17,10 +17,12 @@
           
             <label class="w3-label w3-text-teal w3-left"><b>邮箱</b></label>
             <input class="w3-input w3-border w3-light-grey" type="text"  runat="server" id="txtUserEmail" />
-            <label class="w3-label w3-text-teal w3-left"><b>密码</b></label>
-            <input class="w3-input w3-border w3-light-grey" type="text"  runat="server" id="txtUserPWD" />
-          <br />
-            <asp:Button ID="btnRegister" runat="server"  Text="登录" class="w3-btn w3-blue-grey"  />
+            <label class="w3-label w3-text-teal w3-left "><b>密码</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="password"  runat="server" id="txtUserPWD" />
+         
+            <div class="w3-text-red w3-left" id="txtLoginMsg" runat="server" visible="false"></div>
+             <br />
+            <asp:Button ID="btnRegister" runat="server"  Text="登录" class="w3-btn w3-blue-grey" OnClick="btnRegister_Click"  />
             <a  href="register.aspx" class=" w3-text-blue">注册</a>
              
             
