@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using UEWP.Models;
 using UEWP.Services.Service;
@@ -18,17 +19,29 @@ namespace UEWP.Web.Pages
             this.Page.Header.Title = "公司列表";
             if (!Page.IsPostBack)
             {
-                BindCompany();
+                if (HasPermission())
+                {
+                    BindCompany();
+                    SetDivVisible(true,divCompanyList,divInformationPanel);
+                }
+                else {
+                    divInformationPanel.InnerText = "没有权限";
+                    SetDivVisible(false, divCompanyList, divInformationPanel);
+                }
             }
         }
+
+        
         private List<Company> GetCompanies()
         {
+         
             string keyWord = txtKeyword.Value.Trim();
             List<Company> list = compmanyMgr.GetCompanies(keyWord).OrderByDescending(com => com.ApproveStatus).ToList();
             return list;
         }
         private void BindCompany()
         {
+            
             gvCompanies.DataSource = GetCompanies();
             gvCompanies.DataBind();
         }

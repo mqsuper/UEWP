@@ -77,23 +77,19 @@ namespace UEWP.Services.Service
        private DataSet GetDataSet(User currentUser, string keyWord)
        {
            SqlCommand command = new SqlCommand();
-           switch (currentUser.RoleType)
+
+           if(currentUser.IsSystemAdmin)
            {
-               case RoleType.CompanyAdmin:
-                   {
-                       command.CommandText = "GetBusinessByCompany";
-                       command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyID", SqlDbType = SqlDbType.Int, Value = currentUser.CompanyID });
-                       command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
-                   };
-                   break;
-               case RoleType.SystemAdmin:
-                   {
-                       command.CommandText = "GetAllBusiness";
-                       command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
-                   };
-                   break;
-               default: break;
+                command.CommandText = "GetAllBusiness";
+                command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
            }
+           if (currentUser.IsEnterpriseAdmin)
+           {
+               command.CommandText = "GetBusinessByCompany";
+               command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyID", SqlDbType = SqlDbType.Int, Value = currentUser.CompanyID });
+               command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
+           }
+         
            SqlParameter[] parameters = new SqlParameter[command.Parameters.Count];
            command.Parameters.CopyTo(parameters, 0);
            return SqlHelper.ExecuteDataset(SqlHelper.conStr, command.CommandText, parameters);
@@ -105,7 +101,7 @@ namespace UEWP.Services.Service
            obj.CompanyID = (dr["CompanyId"] == null || string.IsNullOrEmpty(dr["CompanyId"].ToString())) ? -1 : int.Parse(dr["CompanyId"].ToString());
            obj.Name = dr["BusinessName"].ToString();
            obj.Description = dr["BusinessDescription"].ToString();         
-           obj.IsActive = dr["IsActive"] == null ? false : true;
+           obj.IsActive =(bool) dr["IsActive"] ;
            obj.Created = dr["CreatedDate"].ToString();
            obj.CreatedBy = dr["CreatedBy"].ToString();
            obj.Modified = dr["ModifiedDate"].ToString();

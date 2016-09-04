@@ -4,11 +4,14 @@
 
 <div class="w3-container">
 
+    <script>
+        var isEnterpriseAdmin='<%=isEnterpriseAdmin %>';
+    </script>
     <table class="w3-table w3-bordered w3-border ">
         <tr>
             <td style="width:40%">公司管理员</td>
             <td style="width:60%">
-                <input type="checkbox" checked="checked"><label class="w3-validate"></label></td>
+                <input type="checkbox"  id="chkCompanyAdmin"><label class="w3-validate"></label></td>
         </tr>
         <tr>
             <td>业务模块权限</td>

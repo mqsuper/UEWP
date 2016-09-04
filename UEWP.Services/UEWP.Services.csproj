@@ -45,6 +45,7 @@
     <Compile Include="Service\CommonManager.cs" />
     <Compile Include="Service\CompanyManager.cs" />
     <Compile Include="Service\LogHelper.cs" />
+    <Compile Include="Service\RoleManager.cs" />
     <Compile Include="Service\UserManager.cs" />
   </ItemGroup>
   <ItemGroup />

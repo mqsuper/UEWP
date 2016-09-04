@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace UEWP.Models
 {
-    public enum RoleType { SystemAdmin, CompanyAdmin,NormalUser}
+    public enum RoleType { SystemAdmin=1, EnterpriseAdmin,BusinessAdmin, NormalUser}
     
 }

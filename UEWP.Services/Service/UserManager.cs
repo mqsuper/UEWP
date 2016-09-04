@@ -46,6 +46,35 @@ namespace UEWP.Services.Service
             return userList;
         }
 
+        /// <summary>
+        /// 根据用户名获得用户信息
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public User GetUserByEmail(string email)
+        {
+            //GetUserByEmail
+            User u = new User();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "GetUserByEmail";
+            command.Parameters.Add(new SqlParameter() { ParameterName = "@UserEmail", SqlDbType = SqlDbType.NVarChar, Value = email });
+             SqlParameter[] parameters = new SqlParameter[command.Parameters.Count];
+            command.Parameters.CopyTo(parameters, 0);
+            SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.conStr, command.CommandText, parameters);
+            while (reader.Read())
+            {
+                u.ID = reader["UserID"].ToString();
+                u.Name = reader["UserName"].ToString();
+                u.Email = email;
+                u.Gender = (bool)reader["UserGender"] ;
+                u.Age = (reader["UserAge"] == null || string.IsNullOrEmpty(reader["UserAge"].ToString())) ? -1 : int.Parse(reader["UserAge"].ToString());
+                u.CompanyID = (reader["CompanyID"] == null || string.IsNullOrEmpty(reader["CompanyID"].ToString())) ? -1 : int.Parse(reader["CompanyID"].ToString());
+                u.Phone = reader["UserPhone"].ToString();
+                u.IsActive = (bool)reader["IsActive"];
+            }
+
+            return u;
+        }
         public string Add(User obj)
         {
             //加密密码：
@@ -103,21 +132,7 @@ namespace UEWP.Services.Service
 
                 return newID;
             }
-        }
-
-        public DataSet GetRoleInformationonAllBusiness(User currentUser)
-        {
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "GetRoleInformationonAllBusiness";
-            //@CompanyID int,
-            //@UserID uniqueIdentifier
-            command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyID", SqlDbType = SqlDbType.Int, Value = currentUser.CompanyID });
-            command.Parameters.Add(new SqlParameter() { ParameterName = "@UserID", SqlDbType = SqlDbType.UniqueIdentifier, Value = new Guid( currentUser.ID) });
-            SqlParameter[] parameters = new SqlParameter[command.Parameters.Count];
-            command.Parameters.CopyTo(parameters, 0);
-            DataSet ds= SqlHelper.ExecuteDataset(SqlHelper.conStr, command.CommandText, parameters);
-            return ds;
-        }
+        }       
 
         /// <summary>
         /// @keyWord
@@ -127,23 +142,18 @@ namespace UEWP.Services.Service
         private DataSet GetUserDataSet(User currentUser,string keyWord)
         {
             SqlCommand command = new SqlCommand();
-            switch (currentUser.RoleType)
+            if (currentUser.IsSystemAdmin)
             {
-                case RoleType.CompanyAdmin:
-                    {
-                        command.CommandText = "GetUsersByCompany";
-                        command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyID", SqlDbType = SqlDbType.Int, Value = currentUser.CompanyID });
-                        command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
-                    };
-                    break;
-                case RoleType.SystemAdmin:
-                    {
-                        command.CommandText = "GetAllUsers";
-                        command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
-                    };
-                    break;
-                default: break;
+                command.CommandText = "GetAllUsers";
+                command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
             }
+            if (currentUser.IsEnterpriseAdmin)
+            {
+                command.CommandText = "GetUsersByCompany";
+                command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyID", SqlDbType = SqlDbType.Int, Value = currentUser.CompanyID });
+                command.Parameters.Add(new SqlParameter() { ParameterName = "@keyWord", SqlDbType = SqlDbType.NVarChar, Value = keyWord });
+            }
+            
             SqlParameter[] parameters = new SqlParameter[command.Parameters.Count];
             command.Parameters.CopyTo(parameters, 0);
             return SqlHelper.ExecuteDataset(SqlHelper.conStr, command.CommandText, parameters);

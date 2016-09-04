@@ -13,6 +13,15 @@ namespace UEWP.Web.Pages {
     public partial class BusinessList {
         
         /// <summary>
+        /// divBusinessList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBusinessList;
+        
+        /// <summary>
         /// txtKeyword control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace UEWP.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvBiz;
+        
+        /// <summary>
+        /// divInformationPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInformationPanel;
     }
 }

@@ -94,15 +94,19 @@ VALUES(@UserID, @CompanyID,@UserName,@UserEmail,@UserPWD,@UserGender,@UserAge,@U
 select @UserID as 'UserID'
 END 
 
-CREATE PROC GetAssignedBusinessByUserID
+CREATE PROC PROC [dbo].[GetAssignedBusinessByUserID]
 (
-	@UserID uniqueidentifier
+	@UserID uniqueidentifier,
+	@CompanyID int
 )
 as
 BEGIN
-	select * from RoleWithBusiness where USERID=@UserID
+	select * from RoleWithBusiness where USERID=@UserID and CompanyID=@CompanyID
 END
-go
+GO
+
+
+
 --exec  GetAssignedBusinessByUserID '73e9bb3b-7c34-493e-b7c3-027ad3584b87'
 
 --exec GetRoleInformationonAllBusiness 7,'73e9bb3b-7c34-493e-b7c3-027ad3584b87'
@@ -124,4 +128,25 @@ BEGIN
 END
 GO
 
+
+CREATE PROC GetUserByEmail
+(
+@UserEmail nvarchar(100)
+)
+AS
+BEGIN
+	SELECT * FROM T_USER WHERE UserEmail=@UserEmail
+END 
+GO
+
+CREATE PROC [dbo].[GetAllRolesByUserID]
+(
+	@UserID uniqueidentifier
+)
+as
+BEGIN
+	select * from RoleWithBusiness where USERID=@UserID
+END
+
+GO
 

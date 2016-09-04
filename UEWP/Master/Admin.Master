@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- jQuery library -->
     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>   
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -42,7 +42,7 @@
 </script>
 <body>
     <form id="form1" runat="server">
-        <asp:Button id="btnLoginOut" runat="server" Text="注销" OnClick="btnLoginOut_Click" />
+        <asp:Button ID="btnLoginOut" runat="server" Text="注销" OnClick="btnLoginOut_Click" />
         <div class="w3-container w3-green w3-padding-top w3-padding-bottom">
             <div class="w3-left">
                 <div class="w3-tag w3-red">U</div>
@@ -62,14 +62,18 @@
             </div>
         </div>
         <nav class="w3-sidenav w3-white w3-card-2 w3-animate-left w3-collapse w3-border w3-padding-top" style="width: 200px" id="mySidenav">
-            <a href="javascript:void(0)" onclick="w3_close()"
-                class="w3-closenav w3-large w3-hide-large">Close &times;</a>
-            <a href="../pages/companies.aspx"><i class="fa fa-home "> 公司管理</i></a>
-            <a href="../pages/userlist.aspx"><i class="fa fa-user "> 用户管理</i></a>
-            <a href="../pages/TemplateList.aspx"><i class="fa fa-bookmark "> 模板管理</i></a>
-            <a href="../pages/businesslist.aspx"><i class="fa fa-bookmark ">  业务管理</i></a>
-            <a href="../pages/RoleManagement.aspx"><i class="fa fa-bookmark ">  权限管理</i></a>
-            <asp:ContentPlaceHolder ID="lefNavigator" runat="server"></asp:ContentPlaceHolder>
+            <div id="divMenuItems" runat="server">
+                 <a href="javascript:void(0)" onclick="w3_close()"
+                    class="w3-closenav w3-large w3-hide-large">Close &times;</a>
+                <a href="../pages/companies.aspx"><i class="fa fa-home ">公司管理</i></a>
+                <a href="../pages/userlist.aspx"><i class="fa fa-user ">用户管理</i></a>
+                <a href="../pages/TemplateList.aspx"><i class="fa fa-bookmark ">模板管理</i></a>
+                <a href="../pages/businesslist.aspx"><i class="fa fa-bookmark ">业务管理</i></a>
+                <a href="../pages/RoleManagement.aspx"><i class="fa fa-bookmark ">权限管理</i></a>
+            </div>
+            <asp:ContentPlaceHolder ID="lefNavigator" runat="server">
+               
+            </asp:ContentPlaceHolder>
         </nav>
 
         <div style="margin-left: 200px" class="w3-main">

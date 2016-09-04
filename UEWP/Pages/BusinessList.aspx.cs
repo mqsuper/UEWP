@@ -15,13 +15,25 @@ namespace UEWP.Web.Pages
     {
 
         BusinessManager bizMgr = new BusinessManager();
+        User loginUser;
         protected void Page_Load(object sender, EventArgs e)
         {
+            loginUser = UserHelper.CurrentUser;
             this.Page.Header.Title = "业务列表";
             if (!Page.IsPostBack)
             {
-                Bind();
+                if (HasPermission())
+                {
+                    Bind();
+                    SetDivVisible(true, divBusinessList, divInformationPanel);
+                }
+                else
+                {
+                    divInformationPanel.InnerText = "没有权限";
+                    SetDivVisible(false, divBusinessList, divInformationPanel);
+                }
             }
+            
         }
         private List<Business> GetData()
         {
