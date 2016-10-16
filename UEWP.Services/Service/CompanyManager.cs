@@ -43,11 +43,11 @@ namespace UEWP.Services.Service
                     command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyAddress", SqlDbType = SqlDbType.NVarChar, Value = com.Address });
                     command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyPhone", SqlDbType = SqlDbType.NVarChar, Value = com.Phone });
                     command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyContactor", SqlDbType = SqlDbType.NVarChar, Value = com.Contactor });
-                    command.Parameters.Add(new SqlParameter() { ParameterName = "@IsActive", SqlDbType = SqlDbType.Bit, Value = true });
-                    command.Parameters.Add(new SqlParameter() { ParameterName = "@ApprovalStatus", SqlDbType = SqlDbType.Bit, Value = true });
-                    command.Parameters.Add(new SqlParameter() { ParameterName = "@Level", SqlDbType = SqlDbType.Int, Value = null });
+                    command.Parameters.Add(new SqlParameter() { ParameterName = "@IsActive", SqlDbType = SqlDbType.Bit, Value = com.IsActive });
+                    command.Parameters.Add(new SqlParameter() { ParameterName = "@ApprovalStatus", SqlDbType = SqlDbType.Bit, Value = com.IsActive });
+                    command.Parameters.Add(new SqlParameter() { ParameterName = "@Level", SqlDbType = SqlDbType.Int, Value = com.Level });
                     command.Parameters.Add(new SqlParameter() { ParameterName = "@CompanyID", SqlDbType = SqlDbType.NVarChar, Direction = ParameterDirection.Output });
-                    command.Parameters.Add(new SqlParameter() { ParameterName = "@ApplyUserID", SqlDbType = SqlDbType.UniqueIdentifier, Value = null });
+                    command.Parameters.Add(new SqlParameter() { ParameterName = "@ApplyUserID", SqlDbType = SqlDbType.UniqueIdentifier, Value = com.Level });
                     #endregion
                     SqlParameter[] parameters = new SqlParameter[command.Parameters.Count];
                     command.Parameters.CopyTo(parameters, 0);

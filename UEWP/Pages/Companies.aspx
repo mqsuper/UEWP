@@ -52,31 +52,33 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-        <div id="divCompanyDetails" class="w3-modal w3-round">
+        <div id="divCompanyInformationContainer" class="w3-modal w3-round">
             <div class="w3-modal-content w3-round">
                 <div class="w3-container w3-padding">
-                    <span onclick="document.getElementById('divCompanyDetails').style.display='none'"
+                    <span onclick="document.getElementById('divCompanyInformationContainer').style.display='none'"
                         class="w3-closebtn">&times;</span>
 
                     <header class="w3-teal w3-padding  w3-padding-top w3-padding-bottom w3-round">公司信息</header>
-                    <label>公司名称</label>
+                    <input class="w3-input w3-border w3-light-grey" type="hidden" id="txtCompanyID" />
+                    <label class="w3-label w3-text-teal w3-left"><b>公司名称</b></label>
                     <input type="text" class="w3-input w3-border w3-round" id="txtCompanyName" />
-                    <label>公司地址</label>
+                    <label class="w3-label w3-text-teal w3-left"><b>公司地址</b></label>
                     <input type="text" class="w3-input w3-border w3-round" id="txtCompanyAddress" />
-                    <label>公司联系人</label>
+                    <label class="w3-label w3-text-teal w3-left"><b>公司联系人</b></label>
                     <input type="text" class="w3-input w3-border w3-round" id="txtCompanyContactor" />
-                    <label>公司联系方式</label>
+                    <label class="w3-label w3-text-teal w3-left"><b>公司联系方式</b></label>
                     <input type="text" class="w3-input w3-border w3-round" id="txtCompanyPhone" />
+                    <label class="w3-label w3-text-teal w3-left"><b>状态</b></label>
+                    <input class="w3-input w3-border w3-light-grey" type="checkbox" id="chkCompanyIsActive" />
                     <br />
                     <div class="w3-container w3-center">
-
-                        <input type="button" class="w3-btn UEWPbtnMiddle" value="取消" id="btnEdit" />
-                        <input type="button" class="w3-btn UEWPbtnMiddle" value="保存" id="btnSave" />
+                        <input type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="btnSaveComAction" value="保存" />
+                        <input type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="btnCancelComAction" value="取消" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="divInformationPanel" class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-display-middle" style="height:40px" runat="server"></div>
+    <div id="divInformationPanel" class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-display-middle" style="height: 40px" runat="server"></div>
 
 </asp:Content>

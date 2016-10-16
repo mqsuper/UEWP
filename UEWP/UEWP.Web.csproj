@@ -70,6 +70,7 @@
     <Content Include="Pages\DataList.aspx" />
     <Content Include="Pages\RoleManagement.aspx" />
     <Content Include="Pages\TemplateList.aspx" />
+    <Content Include="Pages\UserInfo.aspx" />
     <Content Include="Pages\UserList.aspx" />
     <Content Include="Scripts\Business\BizManagement.js" />
     <Content Include="Scripts\UEWP.Common.js" />
@@ -91,7 +92,9 @@
     <Content Include="Scripts\User\ResponsiveDialog.js" />
     <Content Include="Scripts\User\RoleAssignment.js" />
     <Content Include="Scripts\User\UserManagement.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\BasePage.cs">
@@ -178,6 +181,13 @@
     </Compile>
     <Compile Include="Pages\Templates.aspx.designer.cs">
       <DependentUpon>Templates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>

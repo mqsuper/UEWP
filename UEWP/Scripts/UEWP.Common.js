@@ -16,3 +16,19 @@ function CallAjax(callType, callUrl, callParas, succeedFun, failedFun)
 		}
 	});
 }
+function openDialog(dialogID)
+{
+    $('#' + dialogID).dialog('open');
+}
+function closeDialog(dialogID)
+{
+    $('#' + dialogID).dialog('close');
+}
+function openW3SSDialog(dialogID) {
+    var w3SSModal = $("#" + dialogID);
+    w3SSModal.css("display", 'block');
+}
+function closeW3SSDialog(dialogID) {
+    var w3SSModal = $("#" + dialogID);
+    w3SSModal.css("display", 'none');
+}

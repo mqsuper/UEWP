@@ -14,5 +14,8 @@ namespace UEWP.Models
        public string Contactor { get; set; }
        public int ID { get; set; }
        public bool ApproveStatus{ get; set; }
+       public string   ApplyUserID { get; set; }
+       public int Level { get; set; }
+       public bool IsActive { get; set; }
     }
 }

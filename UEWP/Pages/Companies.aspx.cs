@@ -46,17 +46,20 @@ namespace UEWP.Web.Pages
             gvCompanies.DataBind();
         }
         [WebMethod]
-        public static ReturnClientObject AddCompany()
+        public static ReturnClientObject AddCompany(Company newCom)
         {
             ReturnClientObject clientObj = new ReturnClientObject();
             try
             {
-                var company = new Company();
-                company.Name = "Name";
-                company.Phone = "123456";
-                company.Address = "Address";
-                company.Contactor = "johnny";
-                new CompanyManager().Add(company);
+                if (newCom.ID == 0 || newCom.ID == -1)
+                {
+                    newCom.ApproveStatus = true;
+                    new CompanyManager().Add(newCom);
+                }
+                else
+                { 
+                    //TODO编辑
+                }
                 clientObj.IsSucceed = true;
                 clientObj.Message = "添加成功";
             }

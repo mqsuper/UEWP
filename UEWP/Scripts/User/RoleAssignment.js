@@ -98,7 +98,7 @@ function loadSucceed(result) {
         if (typeof (enterpriseAdminCHK.attr("checked")) != "undefined")
             enterpriseAdminCHK.removeAttr("checked");
     }
-    closeRoleAssignmentDialog();
+    //closeRoleAssignmentDialog();
 }
 function loadFailed(result) {
     //alert(result);
